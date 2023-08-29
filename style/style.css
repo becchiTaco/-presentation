@@ -1,0 +1,281 @@
+:root{
+    --tonoA: #610345;
+    --tonoB: #d44b7f;
+    --tonoC: #107e7d;
+    --tonoD: #95190c;
+    --tonoE: #e38505;
+    --tonoF: #252424;
+}
+
+/* GLOBALES */
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;  /*ayuda al box model*/
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {  /*ayuda al box model*/
+  box-sizing: inherit;
+}
+body{
+    font-size: 16px; /*1 rem = 10px*/
+    font-family: 'Roboto Mono', monospace;
+    background-image: linear-gradient(to top, var(--tonoF) 10%, var(--tonoA));
+}
+.contenedor{
+    max-width: 120rem; /*Numero variable dependiendo de la pantalla*/
+    /*top right bottom auto es una forma más eficiente de escribir CSS en vez de poner más lineas en el código*/
+    margin: 0 auto 0 auto;
+}
+.boton{
+    background-color: var(--tonoA);
+    color: var(--tonoE);
+    padding: 1rem 3rem 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton{
+        width: auto;
+    }    
+}
+
+.boton:hover{
+    cursor: pointer;
+    background-color: var(--tonoC);
+}
+
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.43);
+    /* background-color: var(--tonoA); */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* TIPOGRAFIA */
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8;
+}
+h1,h2,h3,p{
+    text-align: center;
+    color: var(--tonoE);
+}
+
+/* TITULOS */
+.titulo span{
+    font-size: 2rem;
+}
+.nav-bg{
+    background-color: var(--tonoE);
+}
+
+/* UTILIDADES */
+.w-sm-100{
+    width: 100%;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100{
+        width: auto;
+    }   
+}
+.flex{
+    display: flex;
+}
+
+.alinear-derecha{
+    justify-content: flex-end;
+}
+
+
+
+/* NAVEGACIÓN */
+.nav-prin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .nav-prin{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.nav-prin a{
+    color: var(--tonoA);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700; /*Equivalente a negritas con los textos que tomamos*/
+    padding: 1rem;
+}
+.nav-prin a:hover{
+    background-color: var(--tonoD);
+    color: var(--tonoE);
+}
+
+/* HERO */
+.hero{
+    background-image: url(../imagenes/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative; /*Se usa para el "padre" para que el "hijo tenga posición absoluta, se establece la base del contenido para que no tome de referencia las coordenadas del archivo"*/
+    margin-bottom: 2rem;
+
+}
+.contenido-hero{
+    position: absolute; /*Hijo*/
+    background-color: rgb(0 0 0 / 70%);
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-hero h2{
+    color: var(--tonoE);
+}
+.contenido-hero p{
+    color: var(--tonoE);
+}
+.contenido-hero .ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+
+.servicios, .nav-prin, .servicios, .tecnologias, .formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* SERVICIOS y TECNOLOGÍAS*/
+
+@media (min-width: 768px) {
+    .servicios{
+        display: grid; /*Agrega propiedades de CSS grid*/
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1rem;
+    }
+    .tecnologias{
+        display: grid; /*Agrega propiedades de CSS grid*/
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 1rem;
+    }
+
+}
+
+.servicio, .tecnologia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.servicio h3{
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+    color: var(--tonoE);
+}
+.servicio .iconos{
+    height: 12rem;
+    width: 12rem;
+    background-color: var(--tonoC);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.tecnologia .iconos{
+    height: 12rem;
+    width: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTACTO */
+
+.formulario{
+    background-color: var(--tonoB);
+    width: min( 60rem, 100% ); /*Utilizar el valor más pequeño*/
+    margin: 0 auto; /*En este caso no se usa justify content, ya que no hay display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+.formulario fieldset {
+    border: none;
+}
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--tonoD);
+}
+
+@media (min-width: 768px) {
+    .campos{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto 20rem ;
+        column-gap: 1rem;
+
+    }    
+    .campo:nth-child(3){
+        grid-column: 1 / 3;
+
+    }
+    .campo:nth-child(4){
+        grid-column: 1 / 3;
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--tonoD);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea{
+    height: 17rem;
+
+}
+
+.campo .input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align: center;
+}
